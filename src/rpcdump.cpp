@@ -38,7 +38,7 @@ Value importprivkey(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "importprivkey <cryptoapplesprivkey> [label]\n"
+            "importprivkey <Cryptoapplesprivkey> [label]\n"
             "Adds a private key (as returned by dumpprivkey) to your wallet.");
 
     string strSecret = params[0].get_str();
@@ -75,8 +75,8 @@ Value dumpprivkey(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-        "dumpprivkey <cryptoapplesaddress>\n"
-        "Reveals the private key corresponding to <cryptoapplesaddress>.");
+        "dumpprivkey <Cryptoapplesaddress>\n"
+        "Reveals the private key corresponding to <Cryptoapplesaddress>.");
 
     string strAddress = params[0].get_str();
     CBitcoinAddress address;

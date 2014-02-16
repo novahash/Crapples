@@ -78,7 +78,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    if(uri.scheme() != QString("cryptoapples"))
+    if(uri.scheme() != QString("Cryptoapples"))
         return false;
 
     // check if the address is valid
@@ -128,13 +128,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert cryptoapples:// to cryptoapples:
+    // Convert Cryptoapples:// to Cryptoapples:
     //
-    //    Cannot handle this later, because cryptoapples:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because Cryptoapples:// will cause Qt to see the part after // as host,
     //    which will lowercase it (and thus invalidate the address).
-    if(uri.startsWith("cryptoapples://"))
+    if(uri.startsWith("Cryptoapples://"))
     {
-        uri.replace(0, 11, "cryptoapples:");
+        uri.replace(0, 11, "Cryptoapples:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -360,7 +360,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "cryptoapples.desktop";
+    return GetAutostartDir() / "Cryptoapples.desktop";
 }
 
 bool GetStartOnSystemStartup()
@@ -398,7 +398,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         boost::filesystem::ofstream optionFile(GetAutostartFilePath(), std::ios_base::out|std::ios_base::trunc);
         if (!optionFile.good())
             return false;
-        // Write a cryptoapples.desktop file to the autostart directory:
+        // Write a Cryptoapples.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         optionFile << "Name=Cryptoapples\n";
@@ -425,7 +425,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
     header = tr("Cryptoapples-Qt") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
-        "  cryptoapples-qt [" + tr("command-line options") + "]                     " + "\n";
+        "  Cryptoapples-qt [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage());
 

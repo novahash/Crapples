@@ -540,7 +540,7 @@ public:
     {
         // Large (in bytes) low-priority (new, small-coin) transactions
         // need a fee.
-        return dPriority > COIN * 720 / 250; // Cryptoapples: 720 blocks found a day. Priority cutoff is 1 cryptoapples day / 250 bytes.
+        return dPriority > COIN * 720 / 250; // Cryptoapples: 720 blocks found a day. Priority cutoff is 1 Cryptoapples day / 250 bytes.
     }
 
     int64 GetMinFee(unsigned int nBlockSize=1, bool fAllowFree=true, enum GetMinFee_mode mode=GMF_BLOCK) const

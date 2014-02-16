@@ -295,14 +295,14 @@ void ThreadIRCSeed2(void* parg)
         }
         
         if (fTestNet) {
-            Send(hSocket, "JOIN #cryptoapplesTEST3\r");
-            Send(hSocket, "WHO #cryptoapplesTEST3\r");
+            Send(hSocket, "JOIN #CryptoapplesTEST3\r");
+            Send(hSocket, "WHO #CryptoapplesTEST3\r");
         } else {
-            // randomly join #cryptoapples00-#cryptoapples99
+            // randomly join #Cryptoapples00-#Cryptoapples99
             int channel_number = GetRandInt(100);
             channel_number = 0; // Cryptoapples: for now, just use one channel
-            Send(hSocket, strprintf("JOIN #cryptoapples%02d\r", channel_number).c_str());
-            Send(hSocket, strprintf("WHO #cryptoapples%02d\r", channel_number).c_str());
+            Send(hSocket, strprintf("JOIN #Cryptoapples%02d\r", channel_number).c_str());
+            Send(hSocket, strprintf("WHO #Cryptoapples%02d\r", channel_number).c_str());
         }
 
         int64 nStart = GetTime();

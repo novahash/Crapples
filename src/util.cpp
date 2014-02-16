@@ -937,7 +937,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "cryptoapples";
+    const char* pszModule = "Cryptoapples";
 #endif
     if (pex)
         return strprintf(
@@ -976,7 +976,7 @@ boost::filesystem::path GetDefaultDataDir()
     // Windows < Vista: C:\Documents and Settings\Username\Application Data\Cryptoapples
     // Windows >= Vista: C:\Users\Username\AppData\Roaming\Cryptoapples
     // Mac: ~/Library/Application Support/Cryptoapples
-    // Unix: ~/.cryptoapples
+    // Unix: ~/.Cryptoapples
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "Cryptoapples";
@@ -994,7 +994,7 @@ boost::filesystem::path GetDefaultDataDir()
     return pathRet / "Cryptoapples";
 #else
     // Unix
-    return pathRet / ".cryptoapples";
+    return pathRet / ".Cryptoapples";
 #endif
 #endif
 }
@@ -1036,7 +1036,7 @@ const boost::filesystem::path &GetDataDir(bool fNetSpecific)
 
 boost::filesystem::path GetConfigFile()
 {
-    boost::filesystem::path pathConfigFile(GetArg("-conf", "cryptoapples.conf"));
+    boost::filesystem::path pathConfigFile(GetArg("-conf", "Cryptoapples.conf"));
     if (!pathConfigFile.is_complete()) pathConfigFile = GetDataDir(false) / pathConfigFile;
     return pathConfigFile;
 }
@@ -1053,7 +1053,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
     {
-        // Don't overwrite existing settings so command line settings override cryptoapples.conf
+        // Don't overwrite existing settings so command line settings override Cryptoapples.conf
         string strKey = string("-") + it->string_key;
         if (mapSettingsRet.count(strKey) == 0)
         {
@@ -1067,7 +1067,7 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 
 boost::filesystem::path GetPidFile()
 {
-    boost::filesystem::path pathPidFile(GetArg("-pid", "cryptoapplesd.pid"));
+    boost::filesystem::path pathPidFile(GetArg("-pid", "Cryptoapplesd.pid"));
     if (!pathPidFile.is_complete()) pathPidFile = GetDataDir() / pathPidFile;
     return pathPidFile;
 }
