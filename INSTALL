@@ -1,0 +1,9 @@
+Building Cryptoapples
+
+See doc/readme-qt.rst for instructions on building Cryptoapples-QT,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of Cryptoapples.
+
+See doc/build-*.txt for instructions on building cryptoapplesd,
+the intended-for-services, no-graphical-interface, reference
+implementation of Cryptoapples.
